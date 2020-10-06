@@ -57,7 +57,6 @@ public class Role {
     @JoinColumn(name = "weapon_id", referencedColumnName = "weapon_id", nullable = true)
     private Weapon weapon;
 
-//    TODO 解決重複筆數問題
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "role_skill", joinColumns = {@JoinColumn(name = "role_id")}
             , inverseJoinColumns = {@JoinColumn(name = "skill_id")}
@@ -150,8 +149,9 @@ public class Role {
     }
 
     /**
+     * 用這個要注意，要取出此物件原本的list參考，不要自己建立新的list!!!
+     *
      * @param skills
-     * @deprecated 不能用
      */
     public void setSkills(List<Skill> skills) {
         this.skills = skills;

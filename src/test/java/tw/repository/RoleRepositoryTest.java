@@ -83,4 +83,11 @@ class RoleRepositoryTest {
         boolean res = roleRepository.existsByWeaponId(7);
         System.out.println(res);
     }
+
+
+    @Test
+    void existsByNickName(){
+        boolean res = roleRepository.existsByNickName("Daniel");
+        System.out.println(res);
+    }
 }

@@ -6,7 +6,8 @@ package tw.enums;
 public enum AccountsErrorCode {
 
     ACCOUNT_NOT_FOUND(1, "account not found"),
-    ACCOUNT_NO_RESULT(2, "no result");
+    ACCOUNT_NO_RESULT(2, "no result"),
+    ACCOUNT_DUPLICATE(3, "account duplicate");
 
     /**
      * 錯誤碼

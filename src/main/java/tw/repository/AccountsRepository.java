@@ -49,10 +49,19 @@ public interface AccountsRepository extends JpaRepository<Accounts, Integer> {
 
     /**
      * 根據帳號, 查詢帳號
-     * @param account  帳號
+     *
+     * @param account 帳號
      * @return
      */
     Optional<Accounts> findByAccountEquals(String account);
+
+    /**
+     * 查詢帳號是否存在
+     *
+     * @param account 帳號
+     * @return true存在, false不存在
+     */
+    boolean existsAccountsByAccount(@Param("account") String account);
 
     // ---------------------------------------------------
     // update

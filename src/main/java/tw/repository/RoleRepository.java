@@ -58,8 +58,9 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
      */
     //JPQL查詢
 //    @Query(value = "SELECT r FROM Role r WHERE r.id=?1")
-    @Query(value = "SELECT r FROM Role r WHERE r.id=:id")
-    RoleResponse findByIdJPQL(@Param("id") int id);
+    @Query(value = "SELECT r FROM Role r WHERE r.id=:xxx")
+    RoleResponse findByIdJPQL(@Param("xxx") int id);
+//    ?1?2要照順序, @Param
 
     /**
      * 查詢全部, 回傳List
@@ -75,7 +76,8 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
      * @param nickName 暱稱
      * @return
      */
-    List<RoleResponse> findAllByNickNameLike(String nickName);
+    List<RoleResponse> findAllByNickNameLike(@Param("xxx") String nickName);
+//    要注意順序
 
     /**
      * 分頁查詢全部
@@ -123,6 +125,14 @@ public interface RoleRepository extends JpaRepository<Role, Integer> {
      * @return
      */
     boolean existsByWeaponId(int weaponId);
+
+
+    /**
+     * 查詢有沒有存在nickName
+     * @param nickName 暱稱
+     * @return true存在, false不存在
+     */
+    boolean existsByNickName(@Param("nickName") String nickName);
 
     // ---------------------------------------------------
     // JPQL, update

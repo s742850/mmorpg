@@ -54,16 +54,8 @@ class AccountsRepositoryTest {
 
     @Test
     void test() {
-        String text = "";
-
-        long beginTime = System.currentTimeMillis();
-        long endTime = System.currentTimeMillis();
-
-        StringBuilder builder = new StringBuilder("");
-        beginTime = System.currentTimeMillis();
-        for (int i = 0; i < 30000; i++)
-            builder.append(i);
-        endTime = System.currentTimeMillis();
-        System.out.println("執行時間：" + (endTime - beginTime));
+        boolean res = accountsRepository.existsAccountsByAccount("hhhh");
+        System.out.println(res);
     }
+
 }

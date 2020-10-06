@@ -106,6 +106,8 @@ public class RoleServiceImpl implements RoleService {
      */
     @Override
     public RoleResponse insertRole(Role role) throws RoleException {
+        String nickName = role.getNickName();
+        if (roleRepository.existsByNickName(nickName)) throw new RoleException(RoleErrorCode.ROLE_NICKNAME_DUPLICATE);
         Role save = roleRepository.save(role);
         return new RoleResponse(save);
     }

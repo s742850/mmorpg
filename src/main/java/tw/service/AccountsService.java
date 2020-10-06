@@ -16,7 +16,7 @@ public interface AccountsService {
      * @param password 密碼
      * @return
      */
-    AccountsResponse insertAccounts(String account, String password);
+    AccountsResponse insertAccounts(String account, String password) throws AccountsException;
 
     /**
      * 根據ID查詢帳號
@@ -52,6 +52,7 @@ public interface AccountsService {
 
     /**
      * 查詢全部帳號
+     *
      * @param pageable
      * @return accounts page
      * @throws AccountsException

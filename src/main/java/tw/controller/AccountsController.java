@@ -32,10 +32,11 @@ public class AccountsController {
      * @param account  帳號
      * @param password 密碼
      * @return
+     * @throws AccountsException
      */
     @PostMapping
     public AccountsResponse insertAccounts(@RequestParam String account
-            , @RequestParam String password) {
+            , @RequestParam String password) throws AccountsException {
         return accountsService.insertAccounts(account, password);
     }
 

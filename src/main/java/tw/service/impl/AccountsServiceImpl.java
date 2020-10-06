@@ -20,7 +20,14 @@ public class AccountsServiceImpl implements AccountsService {
     AccountsRepository accountsRepository;
 
     @Override
-    public AccountsResponse insertAccounts(String account, String password) {
+    public AccountsResponse insertAccounts(String account, String password)
+            throws AccountsException {
+        boolean isExists = accountsRepository.existsAccountsByAccount(account);
+
+        if (isExists) {
+            throw new AccountsException(AccountsErrorCode.ACCOUNT_DUPLICATE);
+        }
+
         Accounts accounts = new Accounts(account, password);
         Accounts save = accountsRepository.save(accounts);
         return new AccountsResponse(save);
