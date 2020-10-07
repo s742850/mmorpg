@@ -53,9 +53,14 @@ class AccountsRepositoryTest {
 
 
     @Test
-    void test() {
+    void existsAccountsByAccount() {
         boolean res = accountsRepository.existsAccountsByAccount("hhhh");
         System.out.println(res);
     }
 
+    @Test
+    void existsAccountsById(){
+        boolean res = accountsRepository.existsAccountsById(100);
+        System.out.println(res);
+    }
 }

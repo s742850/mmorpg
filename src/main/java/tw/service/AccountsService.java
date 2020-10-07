@@ -3,7 +3,10 @@ package tw.service;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import tw.ex.AccountsException;
+import tw.ex.CommonException;
+import tw.model.Accounts;
 import tw.response.AccountsResponse;
+import tw.response.CommonResponse;
 
 import java.util.List;
 
@@ -58,4 +61,12 @@ public interface AccountsService {
      * @throws AccountsException
      */
     Page<AccountsResponse> findAll(Pageable pageable) throws AccountsException;
+
+    /**
+     * 更新帳號
+     *
+     * @param accounts 帳號
+     * @return
+     */
+    CommonResponse updateAccounts(Accounts accounts) throws CommonException;
 }

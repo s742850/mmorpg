@@ -63,6 +63,15 @@ public interface AccountsRepository extends JpaRepository<Accounts, Integer> {
      */
     boolean existsAccountsByAccount(@Param("account") String account);
 
+    /**
+     * 查詢帳號是否存在
+     *
+     * @param id 帳號ID
+     * @return
+     */
+    boolean existsAccountsById(@Param("id") int id);
+
+
     // ---------------------------------------------------
     // update
     // ---------------------------------------------------

@@ -6,7 +6,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 import tw.ex.AccountsException;
+import tw.ex.CommonException;
+import tw.model.Accounts;
 import tw.response.AccountsResponse;
+import tw.response.CommonResponse;
 import tw.service.AccountsService;
 
 import java.util.List;
@@ -101,6 +104,18 @@ public class AccountsController {
         return accountsService.updateAccounts(account, password);
     }
 
+    /**
+     * 用entity傳參數可以不全帶, 會檢查是否有存在此帳號ID, 沒有拋出錯誤訊息
+     *
+     * @param accounts
+     * @return
+     * @throws CommonException
+     */
+    @PutMapping(value = "/updateAccount")
+    public CommonResponse updateAccount(@RequestBody Accounts accounts)
+            throws CommonException {
+        return accountsService.updateAccounts(accounts);
+    }
     // ---------------------------------------------------
     // delete
     // ---------------------------------------------------

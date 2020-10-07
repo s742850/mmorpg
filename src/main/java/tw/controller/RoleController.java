@@ -138,13 +138,14 @@ public class RoleController {
             , @RequestParam(required = false) Integer hp
             , @RequestParam(required = false) String level
             , @RequestParam(required = false) String nickName
-            , @RequestParam(required = false) String weaponName) throws RoleException {
+            , @RequestParam(required = false) String weaponName
+            , @RequestParam(required = false) int weaponId) throws RoleException {
 
 //        Weapon weapon = new Weapon(weaponName);
 //        Accounts accounts = new Accounts(accountId);
 //        Role role = new Role(id, hp, level, nickName, accounts, weapon);
-
-        RoleResponse save = roleService.updateRole(id, hp, level, nickName, weaponName);
+//TODO 換武器
+        RoleResponse save = roleService.updateRole(id, hp, level, nickName, weaponId, weaponName);
         return save;
     }
 
@@ -155,6 +156,7 @@ public class RoleController {
      */
     @DeleteMapping
     public void DeleteRole(@RequestParam int id) {
+//        TODO 錯誤訊息
         roleService.deleteById(id);
     }
 //

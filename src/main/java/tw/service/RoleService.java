@@ -101,10 +101,12 @@ public interface RoleService {
      * @param hp         血量 option
      * @param level      等級 option
      * @param nickName   暱稱 option
+     * @param weaponId
      * @param weaponName 武器名字 option
      * @return
      */
-    RoleResponse updateRole(Integer id, Integer hp, String level, String nickName, String weaponName) throws RoleException;
+    RoleResponse updateRole(Integer id, Integer hp, String level, String nickName
+            , Integer weaponId, String weaponName) throws RoleException;
 
     /**
      * 根據ID刪除Role

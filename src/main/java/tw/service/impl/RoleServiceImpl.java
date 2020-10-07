@@ -142,7 +142,8 @@ public class RoleServiceImpl implements RoleService {
      * @return
      */
     @Override
-    public RoleResponse updateRole(Integer id, Integer hp, String level, String nickName, String weaponName) throws RoleException {
+    public RoleResponse updateRole(Integer id, Integer hp, String level
+            , String nickName, Integer weaponId, String weaponName) throws RoleException {
         Optional<Role> byId = roleRepository.findById(id);
         if (!byId.isPresent()) throw new RoleException(RoleErrorCode.ERRORS_ROLE_ID);
 
@@ -150,8 +151,13 @@ public class RoleServiceImpl implements RoleService {
         if (hp != null) role.setHp(hp);
         if (level != null) role.setLevel(level);
         if (nickName != null) role.setNickName(nickName);
+
+        Weapon weapon = role.getWeapon();
+//        換武器
+        if (weapon != null && weaponId != null) {
+            weapon.setId(weaponId);
+        }
         if (weaponName != null) {
-            Weapon weapon = role.getWeapon();
             if (Optional.ofNullable(weapon).isPresent()) {
                 weapon.setName(weaponName);
             }

@@ -55,6 +55,7 @@ public class WeaponServiceImpl implements WeaponService {
 
     @Override
     public boolean deleteWeapon(int id) throws WeaponException {
+//        可以try catch
         if (roleRepository.existsByWeaponId(id)) {
             throw new WeaponException(WeaponErrorCode.ROLE_HAS_THIS_WEAPON);
         }
