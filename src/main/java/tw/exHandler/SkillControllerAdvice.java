@@ -22,7 +22,6 @@ public class SkillControllerAdvice {
     public Map errorHandler(SkillException ex) {
         return getMap(ex.getSkillErrorCode());
     }
-//    TODO 泛型
     private Map getMap(SkillErrorCode errorCode) {
         Map map = new HashMap<>();
         map.put("code", errorCode.getCode());

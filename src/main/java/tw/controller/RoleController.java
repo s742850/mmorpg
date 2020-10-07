@@ -144,7 +144,6 @@ public class RoleController {
 //        Weapon weapon = new Weapon(weaponName);
 //        Accounts accounts = new Accounts(accountId);
 //        Role role = new Role(id, hp, level, nickName, accounts, weapon);
-//TODO 換武器
         RoleResponse save = roleService.updateRole(id, hp, level, nickName, weaponId, weaponName);
         return save;
     }
@@ -155,8 +154,7 @@ public class RoleController {
      * @param id
      */
     @DeleteMapping
-    public void DeleteRole(@RequestParam int id) {
-//        TODO 錯誤訊息
+    public void DeleteRole(@RequestParam int id) throws RoleException {
         roleService.deleteById(id);
     }
 //

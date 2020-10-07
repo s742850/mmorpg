@@ -9,6 +9,7 @@ import tw.ex.RoleException;
 import tw.model.Role;
 import tw.model.Weapon;
 import tw.repository.RoleRepository;
+import tw.repository.WeaponRepository;
 import tw.response.RoleResponse;
 import tw.service.RoleService;
 
@@ -20,6 +21,8 @@ public class RoleServiceImpl implements RoleService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    private WeaponRepository weaponRepository;
 
     /**
      * 根據角色ID, 搜尋角色
@@ -155,6 +158,7 @@ public class RoleServiceImpl implements RoleService {
         Weapon weapon = role.getWeapon();
 //        換武器
         if (weapon != null && weaponId != null) {
+
             weapon.setId(weaponId);
         }
         if (weaponName != null) {
@@ -174,7 +178,8 @@ public class RoleServiceImpl implements RoleService {
      * @param id 角色ID
      */
     @Override
-    public void deleteById(int id) {
+    public void deleteById(int id) throws RoleException {
+        if (!roleRepository.existsById(id)) throw new RoleException(RoleErrorCode.ROLE_NO_SUCH_ID);
         roleRepository.deleteById(id);
     }
 

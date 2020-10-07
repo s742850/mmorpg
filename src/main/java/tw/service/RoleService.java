@@ -113,6 +113,6 @@ public interface RoleService {
      *
      * @param id 角色ID
      */
-    void deleteById(int id);
+    void deleteById(int id) throws RoleException;
 
 }

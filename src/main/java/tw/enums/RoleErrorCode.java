@@ -26,8 +26,8 @@ public enum RoleErrorCode {
      * 角色技能重複, 已經有這筆資料了。
      */
     ROLE_SKILL_DUPLICATE(4, "role skill duplicate"),
-    ROLE_NICKNAME_DUPLICATE(5, "role nickname duplicate");
-
+    ROLE_NICKNAME_DUPLICATE(5, "role nickname duplicate"),
+    ROLE_NO_SUCH_ID(6, "role no such id");
     /**
      * 錯誤碼
      */

@@ -40,7 +40,7 @@ public class Role {
     private String level;
 
     /**
-     * TODO fix 為何沒有 account id 卻可以 創建資料? FK沒用?
+     *
      * 帳號
      * FK, 名字叫account_id, 關連到account的id
      */

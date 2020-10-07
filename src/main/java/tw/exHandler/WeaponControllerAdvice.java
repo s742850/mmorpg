@@ -23,7 +23,6 @@ public class WeaponControllerAdvice {
         return getMap(ex.getWeaponErrorCode());
     }
 
-    //    TODO 泛型
     private Map getMap(WeaponErrorCode errorCode) {
         Map map = new HashMap<>();
         map.put("code", errorCode.getCode());
